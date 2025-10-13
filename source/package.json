@@ -1,15 +1,15 @@
 {
-  "name": "@jackyzha0/quartz",
-  "description": "🌱 publish your digital garden and notes as a website",
+  "name": "@shawn-park/finance",
+  "description": "A personal finance blog powered by Quartz",
   "private": true,
   "version": "4.4.0",
   "type": "module",
-  "author": "jackyzha0 <j.zhao2k19@gmail.com>",
+  "author": "shawn-park <shawn.park@iumsoft.com>",
   "license": "MIT",
-  "homepage": "https://quartz.jzhao.xyz",
+  "homepage": "https://shawn-park.github.io/finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jackyzha0/quartz.git"
+    "url": "shawn-park.github.io/finance.git"
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
