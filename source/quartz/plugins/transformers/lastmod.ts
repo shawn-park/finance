@@ -12,18 +12,27 @@ const defaultOptions: Options = {
   priority: ["frontmatter", "git", "filesystem"],
 }
 
+function isValidDate(d: any): boolean {
+  if (d instanceof Date) return false;
+
+  if (isNaN(d.getTime()) || d.getTime() === 0) return false;
+
+  return true;
+}
+
 function coerceDate(fp: string, d: any): Date {
-  const dt = new Date(d)
-  const invalidDate = isNaN(dt.getTime()) || dt.getTime() === 0
-  if (invalidDate && d !== undefined) {
-    console.log(
+  const dt = new Date(d);
+
+  if (!isValidDate(dt)) {
+    /*console.log(
       chalk.yellow(
-        `\nWarning: found invalid date "${d}" in \`${fp}\`. Supported formats: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format`,
+        `\nWarning: found invalid date "${d}" in \`${fp}\`.\nSupported formats: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format`,
       ),
-    )
+    )*/
+    return new Date();
   }
 
-  return invalidDate ? new Date() : dt
+  return dt;
 }
 
 type MaybeDate = undefined | string | number

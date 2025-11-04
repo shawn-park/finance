@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import * as AppConfig from "./app.config.json"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -8,7 +9,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/shawn-park/finance",
+      GitHub: AppConfig.gitUrl,
     },
   }),
 }

@@ -1,5 +1,9 @@
 import { QuartzConfig } from "./quartz/cfg"
+import { ValidLocale } from "./quartz/i18n"
+import { Theme } from "./quartz/util/theme"
+
 import * as Plugin from "./quartz/plugins"
+import * as AppConfig from "./app.config.json"
 
 /**
  * Quartz 4.0 Configuration
@@ -8,47 +12,47 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "금융지식 위키",
-    pageTitleSuffix: "",
+    pageTitle: AppConfig.pageTitle,
+    pageTitleSuffix: AppConfig.pageTitleSuffix,
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "ko-KR",
-    baseUrl: "shawn-park.github.io/finance",
+    locale: AppConfig.locale as ValidLocale,
+    baseUrl: AppConfig.baseUrl,
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
-      fontOrigin: "googleFonts",
+      fontOrigin: AppConfig.theme.fontOrigin as Theme["fontOrigin"],
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: AppConfig.theme.typography.header,
+        body: AppConfig.theme.typography.body,
+        code: AppConfig.theme.typography.code,
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: AppConfig.theme.colors.lightMode.light,
+          lightgray: AppConfig.theme.colors.lightMode.lightgray,
+          gray: AppConfig.theme.colors.lightMode.gray,
+          darkgray: AppConfig.theme.colors.lightMode.darkgray,
+          dark: AppConfig.theme.colors.lightMode.dark,
+          secondary: AppConfig.theme.colors.lightMode.secondary,
+          tertiary: AppConfig.theme.colors.lightMode.tertiary,
+          highlight: AppConfig.theme.colors.lightMode.highlight,
+          textHighlight: AppConfig.theme.colors.lightMode.textHighlight,
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: AppConfig.theme.colors.darkMode.light,
+          lightgray: AppConfig.theme.colors.darkMode.lightgray,
+          gray: AppConfig.theme.colors.darkMode.gray,
+          darkgray: AppConfig.theme.colors.darkMode.darkgray,
+          dark: AppConfig.theme.colors.darkMode.dark,
+          secondary: AppConfig.theme.colors.darkMode.secondary,
+          tertiary: AppConfig.theme.colors.darkMode.tertiary,
+          highlight: AppConfig.theme.colors.darkMode.highlight,
+          textHighlight: AppConfig.theme.colors.darkMode.textHighlight,
         },
       },
     },
